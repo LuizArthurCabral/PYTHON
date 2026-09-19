@@ -1,0 +1,15 @@
+services:
+  notas:
+    build: .
+    image: notas-api:1.0
+    container_name: notas
+    ports:
+      - "8000:8000"
+    environment:
+      - DATA_DIR=/app/data
+    volumes:
+      - notas-dados:/app/data
+    restart: unless-stopped
+
+volumes:
+  notas-dados:
